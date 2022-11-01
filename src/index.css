@@ -1,13 +1,225 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    margin: 0;
+    padding: 0;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+    background-color: #07050e;
+    padding: 0 100px;
+    color: white;
 }
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.put{
+    background-color: transparent !important;
+    border: none;
+    width: 100%;
+    padding: 7px;
+    font-size: 15px;
+    color: rgb(249, 236, 236);
+    outline: none;
+}
+
+.put:focus-within{
+    border-color: rgb(139, 184, 226) !important;
+}
+
+.nav-btns{
+    color: rgb(135, 135, 135) !important;
+}
+.nav-btns:hover{
+    color: #fff !important;
+}
+
+.ddd1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    margin-top: 30px ;
+    margin-left: 500px;
+    padding-bottom: 100px;
+    color: white;
+    border-radius: 5px;
+}
+
+.hhh2{
+    font-size: 50px;
+    color: rgb(135, 135, 135);
+    margin-bottom: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.hhh2:hover{
+    color: aliceblue;
+    transition: .7s;
+}
+
+.iii3{
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(250, 243, 243);
+    outline: none;
+    background-color: rgb(135, 135, 135);
+    padding-left: 2vw;
+}
+
+.iii3::placeholder{
+    color: rgb(59, 52, 52);
+
+}
+
+.bbb4{
+    width: 278px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(162, 61, 48);
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px ;
+    margin-top: 40px;
+    border: none;
+    box-shadow: 0 0 5px white;
+}
+
+
+.portIcon:hover{
+    color: white;
+    transition: .7s;
+}
+
+.platnyi{
+    width: 270px;
+    height: 30px;
+    color: white;
+}
+/* img */
+.container{
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: -1px 5px 15px black; 
+    width: 1100px;
+    margin: 2vw auto;
+}
+
+
+.wrapper{
+    width: 1100px;
+    display: flex;
+    animation: slide 30s infinite;
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(0%);
+    }
+    10%{
+        transform: translateX(-100%);
+    }
+    20%{
+        transform: translateX(-200%);
+    }
+    30%{
+        transform: translateX(-300%);
+    }
+    40%{
+        transform: translateX(-400%);
+    }
+    50%{
+        transform: translateX(-500%);
+    }
+    60%{
+        transform: translateX(-600%);
+    }
+    70%{
+        transform: translateX(-700%);
+    }
+    80%{
+        transform: translateX(-800%);
+    }
+    90%{
+        transform: translateX(-900%);
+    }
+    100%{
+        transform: translateX(-1000%);
+    }
+}
+
+.platnyi-dom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.platnyi-dom1{
+    width: 90%;
+    height: 50px;
+    background-color: rgb(57, 45, 83);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 17px;
+    cursor: alias;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: rgb(135, 135, 135);
+    background-color: transparent;
+    padding-top: 10em;
+    /* position: relative; */
+    bottom: 0;
+    width: 100%;
+  }
+
+  .container2{
+    width: 100%;
+  }
+
+  .row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 5px;
+    text-decoration: none;
+  }
+
+  .typeChat{
+    width: 150px;
+    height: 30px;
+    background-color: rgb(57, 45, 83);
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .emailicon{
+    margin-left: 5px;
+    background-color: rgb(57, 45, 83);
+    margin-top: 5px;
+  }
+
+  .localicon{
+    margin-left: 15px ;
+    background-color: rgb(57, 45, 83);
+    margin-top: 5px;
+  }
