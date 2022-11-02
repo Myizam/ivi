@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "username": "Myizam",
+      "password": "0505",
+      "confPass": "0505",
+      "isAdmin": false,
+      "id": 1
+    },
+    {
+      "username": "1",
+      "password": "1",
+      "confPass": "1",
+      "isAdmin": false,
+      "id": 2
+    },
+    {
+      "username": "2",
+      "password": "1",
+      "confPass": "1",
+      "isAdmin": false,
+      "id": 3
+    },
+    {
+      "username": "marat",
+      "password": "123",
+      "confPass": "123",
+      "isAdmin": true,
+      "id": 4
+    }
+  ],
+  "movies": [
+    {
+      "name": "Forrest Gump",
+      "age": "16",
+      "year": "1994",
+      "genre": "Drama",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu",
+      "description": "Forrest, a man with low IQ, recounts the early years of his life when he found himself in the middle of key historical events. All he wants now is to be reunited with his childhood sweetheart, Jenny.",
+      "duration": "142",
+      "director": "Robert Zemeckis",
+      "dirImg": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRUU5scNk6F4ZbsvLF5FrpRlWXchaD8yWuehj6cfeqOdGaaCOFM",
+      "id": 6
+    }
+  ]
+
+}
