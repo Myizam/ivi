@@ -28,6 +28,10 @@ const pages = [
   {
     type: "Мультфильмы",
     path: '/cartoon'
+  },
+  {
+    type: 'Favourites',
+    path: '/fav'
   }
 ];
 const settings = [

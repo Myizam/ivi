@@ -120,7 +120,7 @@ body{
 .wrapper{
     width: 1100px;
     display: flex;
-    animation: slide 30s infinite;
+    animation: slide 40s infinite;
 }
 
 @keyframes slide{
@@ -184,7 +184,7 @@ body{
     flex-wrap: wrap;
     color: rgb(135, 135, 135);
     background-color: transparent;
-    padding-top: 10em;
+    /* padding-top: 10em; */
     /* position: relative; */
     bottom: 0;
     width: 100%;
@@ -192,15 +192,35 @@ body{
 
   .container2{
     width: 100%;
+
   }
 
   .row{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     padding-bottom: 5px;
+    /* margin-top: 2%; */
     text-decoration: none;
+  }
+
+
+  .list__type{
+    margin-bottom: 10px;
+    list-style-type: none;
+  }
+
+
+  .list__type:hover{
+    color: white;
+    
+  }
+
+  .mar_h4{
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: white !important;
   }
 
   .typeChat{
@@ -210,16 +230,51 @@ body{
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
   }
 
   .emailicon{
     margin-left: 5px;
     background-color: rgb(57, 45, 83);
     margin-top: 5px;
+    cursor: pointer;
+    border-radius: 5px;
   }
 
   .localicon{
     margin-left: 15px ;
     background-color: rgb(57, 45, 83);
     margin-top: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .campainicon{
+    border-radius: 20px;
+    border: none;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(97, 97, 177);
+    box-shadow: 10px 10px 200px 10px rgb(104, 132, 197);
+  }
+
+  .campainicon2{
+    color: white;
+  }
+
+  .imgg__poisk{
+    /* background-color: rgb(97, 97, 177); */
+    color: rgb(97, 97, 177);
+  }
+
+  .stackpag{
+      display: flex;
+      justify-content: center;
+      background-color: rgb(56, 56, 80);
+  }
+
+
+  hr{
+    margin: 20px 0;
+    border: 1px solid rgba(126, 127, 121, 0.298);
   }
