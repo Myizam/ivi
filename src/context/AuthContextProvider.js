@@ -5,103 +5,105 @@ import { useNavigate } from 'react-router-dom'
 export const authContext = React.createContext();
 export const useAuth = () => useContext(authContext)
 
-const API =  "http://localhost:7000/users"
+const API =  "http://34.125.127.248/api/v1/accounts/"
 
 const AuthContextProvider = ({ children }) => {
-    const [user, setUser] = useState([]);
     const navigate = useNavigate()
+    // const [currentUser, setCurrentUser] = useState(false)
+    const [user, setUser] = useState()
+    const [error,setError] = useState()
 
-    // register logic 
-  const registerUser = (user) => {
-    axios.post(API, user);
-  }
-
-  const checkUsername = async (username) => {
-    let res = await axios(API);
-    let result = res.data.some(item => item.username === username);
-    console.log(res.data);
-    console.log(result);
-
-    if(result){
-      return true;
-    } 
-    return false
-  }
-
-  function initStorage(){
-    if(!localStorage.getItem('user')){
-        localStorage.setItem('user', '{}')
-    };
+const registerUser = async (formData) => {
+    try {
+      const result = await axios.post(`${API}register/`, formData);
+      navigate("/activation");
+    console.log(result)
+    } catch (error) {
+      console.log(Object.values(error.response.data).flat(2)[0]);
+      console.log(error);
+      setError(Object.values(error.response.data).flat(2)[0]);
+    }
   };
 
-  const setUserToStorage = async(username) => {
-    let users = await axios(API)
-    let userObj = users.data.find(item => item.username === username);
-    localStorage.setItem("user", JSON.stringify(userObj));
-    let oneUser = JSON.parse(localStorage.getItem('user'))
-    setUser(oneUser);
 
-    // console.log(user);
-  }
-
-
-  const getUserFromStorage = () => {
-    let oneUser = JSON.parse(localStorage.getItem('user'))
-    setUser(oneUser)
-  }
-
-  function checkUserPassword(user, password){
-    return user.password === password;
+  const accountConfirmation = async (value) => {
+    try {
+      const result = await axios(`${API}active/${value}/`);
+      navigate("/login");
+    console.log(result)
+    } catch (error) {
+      console.log(Object.values(error.response.data).flat(2)[0]);
+      console.log(error);
+      setError(Object.values(error.response.data).flat(2)[0]);
+    }
   };
 
-  const checkPassword = async(username, password) => {
-    let users = await axios(API)
-    console.log(users);
-    let userObj = users.data.find(item => item.username === username);
 
-    // console.log(userObj);
-
-    if(!checkUserPassword(userObj, password)){
-      return false;
+  const loginUser = async (formData, email) => {
+    try {
+      const result = await axios.post(`${API}login/`, formData);
+      localStorage.setItem("token", JSON.stringify(result.data))
+      localStorage.setItem("email", email)
+      setUser(email)
+      // setCurrentUser(email)
+    //   navigate("/")
+    console.log(result)
+    } catch (error) {
+      console.log(Object.values(error.response.data).flat(2)[0]);
+      console.log(error);
+      setError(Object.values(error.response.data).flat(2)[0]);
     }
-     return true;
-    }
-  
-   function checkUserPassword(user, password){
-     return user.password === password;
-    };
+  };
 
-    function checkIsAdmin(user, isAdmin){
-     return user.isAdmin === isAdmin;
-    };
 
-    const checkStatus = async(username, isAdmin) => {
-      let users = await axios(API)
-      console.log(users);
-      let userObj = users.data.find(item => item.username === username);
-    console.log(userObj);
+  function logout(){
+      localStorage.removeItem("token");
+      localStorage.removeItem("email");
+      setUser('');
+      navigate('/login');
+}
 
-    setUser(userObj);
+async function forgotPassword(formData) {
+  try {
+    const result = await axios.post(`${API}forgot/`, formData);
+    // navigate("/activation");
+  console.log(result)
+  } catch (error) {
+    console.log(Object.values(error.response.data).flat(2)[0]);
+    console.log(error);
+    setError(Object.values(error.response.data).flat(2)[0]);
+  }
+}
 
-    if(!checkIsAdmin(userObj, isAdmin)){
-      return false;
-    }
-     return true;
-    }  
+async function recoveryPassword(formData) {
+  try {
+    const result = await axios.post(`${API}restore/`, formData);
+    // navigate("/activation");
+  console.log(result)
+  } catch (error) {
+    console.log(Object.values(error.response.data).flat(2)[0]);
+    console.log(error);
+    setError(Object.values(error.response.data).flat(2)[0]);
+  }
+}
+
+
+
+
     
   return (
     <authContext.Provider value={{
         registerUser,
-        checkUsername,
-        checkUsername,
-        checkPassword,
-        checkStatus,
-        initStorage,
-        setUserToStorage,
-        getUserFromStorage,
-        // logout,
-  
-        user
+        setError,
+        loginUser,
+        accountConfirmation,
+        forgotPassword,
+        recoveryPassword,
+        setUser,
+        logout,
+
+        user,
+        error
       }}>
         { children }
       </authContext.Provider>

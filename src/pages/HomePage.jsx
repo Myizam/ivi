@@ -1,6 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import MoviesList from '../components/movies/MovieList'
+
 
 const HomePage = () => {
+  const navigate = useNavigate()
   return (
       <div>
       <div className="container">
@@ -18,8 +22,9 @@ const HomePage = () => {
         </div>
       </div>
         <div className='platnyi-dom'>
-           <button className='platnyi-dom1'>⚡️ 14 дней подписки за 1 $</button>
+           <button className='platnyi-dom1'  onClick={() => navigate('/payment')}>⚡️ 14 дней подписки за 1 $</button>
         </div>
+        <MoviesList />
       </div>
 
   )

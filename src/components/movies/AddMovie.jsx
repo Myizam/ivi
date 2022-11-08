@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMovies } from '../../context/MovieContextProvider';
 import { useNavigate } from 'react-router-dom';
 
+
 // mui imports 
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -9,11 +10,11 @@ import TextField from '@mui/material/TextField';
 
 
 export default function MultilineTextFields() {
-  const [value, setValue] = React.useState('Controlled');
+  // const [value, setValue] = React.useState('Controlled');
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setValue(event.target.value);
+  // };
 
 
   const { addMovie } = useMovies();
@@ -21,45 +22,42 @@ export default function MultilineTextFields() {
 
   // const [movie, setMovie] = useState([])
 
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('')
-  const [genre, setGenre] = useState('');
-  const [year, setYear] = useState('');
-  const [image, setImage] = useState('');
+  const [title, setTitle] = useState('');
+  const [owner, setOwner] = useState('');
   const [description, setDescription] = useState('');
-  const [duration, setDuration] = useState('');
+  const [category, setCategory] = useState("");
+  const [video, setVideo] = useState('');
+  const [image, setImage] = useState('');
   const [director, setDirector] = useState('');
   const [dirImg, setDirImg] = useState('');
+  // const [created_ad, setCreated_ad] = useState('');
+
 
 
   const buttonAdd = () => {
-    if(!name.trim() || !genre.trim() || !image.trim() || !description.trim()){
+    if(!title.trim() || !description.trim() || !owner.trim() ){
       alert('Some inputs are empty!');
       return;
     };
 
-    let movieObj = {
-      name,
-      genre,
-      year,
-      image,
-      description,
-      duration,
-      dirImg,
-      director
-    }
 
-    // setMovie(movieObj);
+    let formData = new FormData()
+    formData.append('title', title)
+    formData.append('owner', owner)
+    formData.append('description', description)
+    formData.append('category', category)
+    formData.append('video', video)
+    formData.append('image', image)
+    formData.append('director', director)
+    formData.append('dirImg', dirImg)
 
-    addMovie(movieObj);
-    setName('');
-    setGenre('');
-    setYear('');
-    setImage('');
+    addMovie(formData);
+    setOwner("")
+    setTitle('');
     setDescription('');
-    setDuration('');
-    setDirImg('');
-    setDirector('');
+    setCategory('');
+    setVideo('');
+    setImage('');
     navigate('/movies');
   }
 
@@ -74,62 +72,63 @@ export default function MultilineTextFields() {
       noValidate
       autoComplete="off"
     >
-      <h2>Add movie</h2>
+      <h2>Добавить</h2>
       <div style={{display: 'flex', margin: '3% 0'}}>
       <Box sx={{display: 'flex', flexDirection: 'column'}}>
-        <TextField value={name}
-          onChange={e => setName(e.target.value)}
+        <TextField value={title}
+          onChange={e => setTitle(e.target.value)}
           color="error"
           id="standard-textarea"
-          label="Movie name"
-          placeholder="Movie name "
+          label="Название"
+          placeholder="Название"
           multiline
           variant="standard"
         />
-         <TextField value={genre}
-          onChange={e => setGenre(e.target.value)}
-          color="error"
-          id="standard-textarea"
-          label="Genre"
-          placeholder="Genre"
-          multiline
-          variant="standard"
-        />
-        <TextField value={year}
-          onChange={e => setYear(e.target.value)}
-          color="error"
-          id="standard-textarea"
-          label="Release date"
-          placeholder="Release date"
-          multiline
-          variant="standard"
-        />
-        <TextField value={image}
-          onChange={e => setImage(e.target.value)}
-          color="error"
-          id="standard-textarea"
-          label="Image"
-          placeholder="Image"
-          multiline
-          variant="standard"
-        />
-        </Box>
-        <Box sx={{display: 'flex', flexDirection: 'column'}}>
+          <Box sx={{display: 'flex', flexDirection: 'column'}}>
          <TextField value={description}
           onChange={e => setDescription(e.target.value)}
           color="error"
           id="standard-textarea"
-          label="Description"
-          placeholder="Description"
+          label="Описание"
+          placeholder="Описание"
           multiline
           variant="standard"
         />
-        <TextField value={duration}
-          onChange={e => setDuration(e.target.value)}
+        <TextField value={owner}
+          onChange={e => setOwner(e.target.value)}
           color="error"
           id="standard-textarea"
-          label="Duration"
-          placeholder="Duration"
+          label="owner"
+          placeholder="owner"
+          multiline
+          variant="standard"
+        />
+         <TextField value={category}
+          onChange={e => setCategory(e.target.value)}
+          color="error"
+          id="standard-textarea"
+          label="Жанр"
+          placeholder="Жанр"
+          multiline
+          variant="standard"
+        />
+        <TextField value={image}
+        // type="file"
+          onChange={e => setImage(e.target.value)}
+          color="error"
+          id="standard-textarea"
+          label="Картина"
+          placeholder="Картина"
+          multiline
+          variant="standard"
+        />
+        </Box>
+        <TextField value={video}
+          onChange={e => setVideo(e.target.value)}
+          color="error"
+          id="standard-textarea"
+          label="Продолжительность"
+          placeholder="Продолжительность"
           multiline
           variant="standard"
         />
@@ -137,8 +136,8 @@ export default function MultilineTextFields() {
           onChange={e => setDirector(e.target.value)}
           color="error"
           id="standard-textarea"
-          label="Director"
-          placeholder="Director"
+          label="Режжисер"
+          placeholder="Режжисер"
           multiline
           variant="standard"
         />
@@ -146,14 +145,14 @@ export default function MultilineTextFields() {
           onChange={e => setDirImg(e.target.value)}
           color="error"
           id="standard-textarea"
-          label="Director image"
-          placeholder="Director image"
+          label="Картина Режжисера"
+          placeholder="Картина Режжисера"
           multiline
           variant="standard"
         />
         </Box>
         </div>
-       <Button onClick={buttonAdd} variant="contained" color='warning'>Add</Button>
+       <Button onClick={buttonAdd} variant="contained" color='warning'>Добавить</Button>
     </Box>
     </main>
   );

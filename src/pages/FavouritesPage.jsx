@@ -6,9 +6,15 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import Button from "@mui/material/Button";
+import { useNavigate } from 'react-router-dom';
+
 
 const FavouritesPage = () => {
-  const { getFav, fav } = useFav();
+  const { getFav, fav, addMovieToFav, removeFav } = useFav();
+  // const [navigate, setNavigate] = useNavigate()
+
 
   useEffect(() => {
     getFav()
@@ -30,10 +36,18 @@ const FavouritesPage = () => {
         <Typography  gutterBottom variant="h5" component="div">
           {elem.item.name}
         </Typography>
-        <div  style={{fontSize: '12px', color: 'orange'}} variant="body2" color="text.secondary">
+        <div  style={{fontSize: '20px', color: 'orange'}} variant="body2" color="text.secondary">
           {elem.item.description}
         </div>
       </CardContent>
+        <Button
+                onClick={() => addMovieToFav(elem.item)}
+                // onClick={() => navigate('/movie')}
+                sx={{ margin: "0px" }}
+                size="small"
+              >
+                <BookmarkIcon fontSize="large" sx={{ color: "red" }} />
+              </Button>
       </>
     </Card>
         ))}

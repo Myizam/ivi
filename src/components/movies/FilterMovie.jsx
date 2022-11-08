@@ -22,16 +22,18 @@ export default function FilterMovie() {
   return (
     <div>
       <Button
-        sx={{color: 'white'}}
+      className='nav-btns'
+        style={{color: '#878787'}}
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Genre
+        Жанры
       </Button>
       <Menu
+        // style={{color: 'black'}}
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
@@ -40,15 +42,15 @@ export default function FilterMovie() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>All</MenuItem>
-        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Drama</MenuItem>
-        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Cartoons</MenuItem>
-        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Biography</MenuItem>
-        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Detective</MenuItem>
-        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Horror</MenuItem>
-        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Comedy</MenuItem>
-        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Fantasy</MenuItem>
-        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>For Adults</MenuItem>
+        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Все</MenuItem>
+        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Драма</MenuItem>
+        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Мультфильмы</MenuItem>
+        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Биография</MenuItem>
+        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Детектив</MenuItem>
+        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Ужастик</MenuItem>
+        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Комедия</MenuItem>
+        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Фантастика</MenuItem>
+        <MenuItem onClick={(e) => fetchByParams('genre', e.target.innerText)}>Для Взрослых</MenuItem>
       </Menu>
     </div>
   );
