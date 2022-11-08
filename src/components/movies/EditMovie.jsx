@@ -56,45 +56,45 @@ const handleInp = e => {
     <Box sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
       <TextField 
           color="error"
-        name='name' 
-        value={movie.name}
+        name='title' 
+        value={movie.title}
         onChange={handleInp}
         id="standard-textarea"
-        label="Movie name"
-        placeholder="Movie name "
+        label="Названия"
+        placeholder="Названия "
         multiline
         variant="standard"
       />
        <TextField 
           color="error"
-        name='genre'
-        value={movie.genre}
+        name='owner'
+        value={movie.owner}
         onChange={handleInp}
         id="standard-textarea"
-        label="Genre"
-        placeholder="Genre"
+        label="Владелец"
+        placeholder="Владелец"
         multiline
         variant="standard"
       />
       <TextField 
           color="error"
-          name='year'
-          value={movie.year}
+          name='description'
+          value={movie.description}
           onChange={handleInp}
           id="standard-textarea"
-          label="Issue year"
-          placeholder="Issue year"
+          label="Описания"
+          placeholder="Описания"
           multiline
           variant="standard"
         />
       <TextField 
           color="error"
-        name='image' 
-        value={movie.image}
+        name='category' 
+        value={movie.category}
         onChange={handleInp}
         id="standard-textarea"
-        label="Image"
-        placeholder="Image"
+        label="Категория"
+        placeholder="Категория"
         multiline
         variant="standard"
       />
@@ -102,23 +102,23 @@ const handleInp = e => {
       <Box sx={{display: 'flex', flexDirection: 'column'}}>
        <TextField 
           color="error"
-        name='description'
-        value={movie.description}
+        name='video'
+        value={movie.video}
         onChange={handleInp}
         id="standard-textarea"
-        label="Description"
-        placeholder="Description"
+        label="Видео"
+        placeholder="Видео"
         multiline
         variant="standard"
       />
       <TextField 
           color="error"
-          name='duration' 
-          value={movie.duration}
+          name='image' 
+          value={movie.image}
           onChange={handleInp}
           id="standard-textarea"
-          label="Duration"
-          placeholder="Duration"
+          label="Картина"
+          placeholder="Картина"
           multiline
           variant="standard"
         />
@@ -128,8 +128,8 @@ const handleInp = e => {
           value={movie.director}
           onChange={handleInp}
           id="standard-textarea"
-          label="Director"
-          placeholder="Director"
+          label="Режисер"
+          placeholder="Режисер"
           multiline
           variant="standard"
         />
@@ -139,8 +139,8 @@ const handleInp = e => {
           value={movie.dirImg}
           onChange={handleInp}
           id="standard-textarea"
-          label="Director image"
-          placeholder="Director image"
+          label="Картина Режисер"
+          placeholder="Картина Режисер"
           multiline
           variant="standard"
         />

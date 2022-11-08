@@ -5,12 +5,14 @@ import Footer from "./Footer/Footer";
 import AuthContextProvider from "./context/AuthContextProvider";
 import MovieContextProvider from "./context/MovieContextProvider";
 import FavContextProvider from "./context/FavContextProvider";
+import CartContextProvider from "./context/CartContextProvider";
 
 
 
 function App() {
   return (
     <>
+    {/* <CartContextProvider> */}
     <FavContextProvider>
     <MovieContextProvider>
      <AuthContextProvider>
@@ -20,6 +22,7 @@ function App() {
        </AuthContextProvider>
       </MovieContextProvider>
       </FavContextProvider>
+      {/* </CartContextProvider> */}
     </>
   );
 }

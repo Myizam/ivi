@@ -9,7 +9,12 @@ import HomePage from './pages/HomePage'
 import MovieDetailsPage from './pages/MovieDetailsPage'
 import MoviePage from './pages/MoviePage'
 import NotFoundPage from './pages/NotFoundPage'
-
+import ActivationPage from './pages/ActivationPage'
+import Restore from './pages/Restore'
+import FormPage from './pages/FormPage'
+import PaymentPage from './pages/PaymentPage'
+// import Rating from './pages/Rating'
+import CartPage from './pages/CartPage'
 const MainRoutes = () => {
   return (
     <>
@@ -24,6 +29,13 @@ const MainRoutes = () => {
         <Route path='/details/:id' element={<MovieDetailsPage/>}/>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/cart' element={<HomePage/>}/>
+        <Route path='/activation' element={<ActivationPage />} />
+        <Route path='/restore' element={<Restore />} />
+        <Route path='/form' element={<FormPage />} />
+        <Route path='/payment' element={<PaymentPage />} />
+        {/* <Route path='/rating' element={<Rating />} /> */}
+        <Route path='/cart' element={<CartPage />} />
+
         </Routes>
     </>
   )

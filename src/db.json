@@ -31,17 +31,49 @@
   ],
   "movies": [
     {
-      "name": "Forrest Gump",
+      "name": "Forrest Gump asdf",
       "age": "16",
       "year": "1994",
       "genre": "Drama",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu",
-      "description": "Forrest, a man with low IQ, recounts the early years of his life when he found himself in the middle of key historical events. All he wants now is to be reunited with his childhood sweetheart, Jenny.",
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/3560b757-9b95-45ec-af8c-623972370f9d/600x900",
+      "description": "Полувековая история США глазами чудака из Алабамы. Абсолютная классика Роберта Земекиса с Томом Хэнксом",
       "duration": "142",
       "director": "Robert Zemeckis",
       "dirImg": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRUU5scNk6F4ZbsvLF5FrpRlWXchaD8yWuehj6cfeqOdGaaCOFM",
       "id": 6
+    },
+    {
+      "name": "Мстители: Финал (2019)",
+      "genre": "Detective",
+      "year": "2019",
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/ae22f153-9715-41bb-adb4-f648b3e16092/600x900",
+      "description": "Железный человек, Тор и другие пытаются переиграть Таноса. Эпохальное завершение супергеройской франшизы",
+      "duration": "181",
+      "dirImg": "https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/59ef5a0a-8b8c-44db-9598-d400d15a64a6/180x270",
+      "director": "Джо Руссо",
+      "id": 7
+    },
+    {
+      "name": "Сердце пармы",
+      "genre": "\nдрама, история",
+      "year": "\n2022",
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/f2d7ecc1-635c-48a2-86db-180982fd9923/600x900",
+      "description": "\n«Великая история, ставшая легендой»",
+      "duration": "\n159 ",
+      "dirImg": "https://avatars.mds.yandex.net/get-kinopoisk-image/1898899/ce3ca9fe-d69a-47e0-9b1e-10625d33c3f4/180x270",
+      "director": "\nАнтон Мегердичев",
+      "id": 8
+    },
+    {
+      "name": "\nБольшое путешествие. Специальная доставка",
+      "genre": "\nмультфильм",
+      "year": "2022",
+      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/4774061/f7e6f99a-cc64-44f7-a9f9-8c3142f27bd1/600x900",
+      "description": "Большое путешествие. Специальная доставка",
+      "duration": "\n90 ",
+      "dirImg": "https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/b4bdb6d9-9709-4581-98d7-b48bb91f0fd3/180x270",
+      "director": "Василий Ровенский",
+      "id": 9
     }
   ]
-
 }
