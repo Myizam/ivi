@@ -112,8 +112,8 @@ export default function MultilineTextFields() {
           multiline
           variant="standard"
         />
-        <TextField value={image}
-        // type="file"
+        <input value={image}
+        type="file"
           onChange={e => setImage(e.target.value)}
           color="error"
           id="standard-textarea"
