@@ -61,17 +61,17 @@ function ResponsiveAppBar() {
   }, [])
 
   const { user, cart,  logout } = useAuth();
-  const {movies, getMovies} = useMovies()
+  const {movies, getMovieSearch} = useMovies()
   const navigate = useNavigate();
   const { initStorage } = useAuth();
 
   useEffect(() => {
-    getMovies();
+    getMovieSearch();
   }, []);
 
   useEffect(() => {
     if(localStorage.getItem("user")){
-      // console.log(user);
+      console.log(user);
   };
   }, [])
 
@@ -82,12 +82,11 @@ function ResponsiveAppBar() {
     setSearchParams({
       q: search
     })
-    }, [search]);
+    }, [search, ] );
 
     useEffect(()=>{
-      getMovies()
+      getMovieSearch()
       }, [searchParams, ]);
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

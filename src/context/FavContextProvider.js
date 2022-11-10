@@ -50,18 +50,11 @@ const FavContextProvider= ({ children }) => {
 
         setFav(fav)
     }
-
-    function removeFav(id){
-        let todos = JSON.parse(localStorage.getItem('fav'))
-        let newTodos = todos.splice(id, 1)
-        localStorage.setItem('fav', JSON.stringify(newTodos))
-    }
     const values = {
         fav,
 
         getFav,
         addMovieToFav,
-        removeFav
     }
 
 

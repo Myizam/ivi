@@ -9,16 +9,19 @@ const MOVIE_API = 'http://34.125.127.248/api/v1/posts/posts/'
 
 const INIT_STATE = {
   movies: [],
-  movieDetails: []
+  movieDetails: [], 
+  searchmovie: []
 };
 
 const reducer = (state=INIT_STATE, action) => {
   switch(action.type){
     case 'GET_MOVIES':
       return {...state, movies: action.payload}
-      case 'GET_MOVIE_DETAILS':
+    case 'GET_MOVIE_DETAILS':
         return {...state, movieDetails: action.payload}
-        default:
+    case "GET_MOVIE_SEARCH":
+      return {...state, searchmovie: action.payload}
+     default:
           return state;
         };
       };
@@ -26,21 +29,27 @@ const reducer = (state=INIT_STATE, action) => {
       const MovieContextProvider = ({ children }) => {
   const [error,setError] = useState()
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
-
     const navigate = useNavigate();
-
     const location = useLocation();
 
       //get all movies
-      const getMovies = async () => {
-        const { data } = await axios(`${MOVIE_API}`);
+  const getMovies = async () => {
+    const { data } = await axios(`${MOVIE_API}`);
         // console.log(data);
-        dispatch({
+      dispatch({
             type: 'GET_MOVIES',
             payload: data
         })
     }
 
+    const getMovieSearch = async () => {
+      const { data } = await axios(`${MOVIE_API}${window.location.search}`);
+          console.log(data);
+        dispatch({
+              type: 'GET_MOVIE_SEARCH',
+              payload: data
+          })
+      }
      //add
      const addMovie = async (formData) => {
       try{
@@ -135,23 +144,89 @@ const reducer = (state=INIT_STATE, action) => {
     navigate(url);
 }
 
-  const values = {
-    addMovie,
-    getMovies,
-    deleteMovie,
-    getMovieDetails,
-    saveEditedMovie,
-    fetchByParams,
-    setError,
+async function postComment(formData, id) {
+  try {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const Authorization = `Bearer ${token.access}`;
+    const config = {
+      headers: {
+        Authorization,
+      },
+    };
+    const res = await axios.post(`${MOVIE_API}doctor/comments/`, formData, config);
+    console.log(res);
+    dispatch({
+      type: "GET_COMMENT",
+      payload: res.data,
+    });
+  } catch (error) {
+    console.log(error);
+    console.log([error.response.data.detail]);
+  }
+}
+async function editComment(formData, id) {
+  try {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const Authorization = `Bearer ${token.access}`;
+    const config = {
+      headers: {
+        Authorization,
+      },
+    };
+    const res = await axios.patch(
+      `${MOVIE_API}doctor/comments/${id}`,
+      formData,
+      config
+    );
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+    console.log([error.response.data.detail]);
+  }
+}
+async function deleteComment(id) {
+  try {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const Authorization = `Bearer ${token.access}`;
+    const config = {
+      headers: {
+        Authorization,
+      },
+    };
+    const res = await axios.delete(`${MOVIE_API}doctor/comments/${id}`, config);
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+    console.log([error.response.data.detail]);
+  }
+}
 
-    error,
-    movies: state.movies,
-    movieDetails: state.movieDetails
+
+
+
+
+
+
+
+const values = {
+  addMovie,
+  getMovies,
+  deleteMovie,
+  getMovieDetails,
+  saveEditedMovie,
+  fetchByParams,
+  setError,
+  postComment,
+  deleteComment,
+  editComment,
+  getMovieSearch,
+
+  error,
+  searchmovie: state.searchmovie,
+  movies: state.movies,
+  movieDetails: state.movieDetails,
+  oneComment: state.oneComment,
 };
-
-
-// console.log(state.movieDetails, );
-
   return (
     <movieContext.Provider value={values}>
         { children }
